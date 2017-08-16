@@ -5,6 +5,17 @@
                 name: "Chester",
                 password: "12345"
               }];
+          try{
+            let tempuser = JSON.parse(localStorage.getItem ("user"));
+
+            tempuser.map((account)=>{
+              console.log(account);
+              user.push(account);
+            });
+          }
+          catch(TypeError){
+            localStorage.setItem('user',JSON.stringify(user));
+          }
               function createUser(){
                 let name = document.querySelector('#txtName').value;
                 let password = document.querySelector('#txtPass').value;
@@ -13,7 +24,9 @@
                   password: password};
                 user.push(newName);
 
-                console.log(user);
+                localStorage.setItem('user',JSON.stringify(user));
+
+                /*console.log(user);
                 let jns = JSON.stringify(user);
                 localStorage.setItem('user',jns); 
 
@@ -26,7 +39,7 @@
 
 
                 console.log("Name is " + jns_retrieve[0].name);
-                console.log("Password is " + jns_retrieve[0].password);
+                console.log("Password is " + jns_retrieve[0].password);*/
 
             /*    let html = `
                   <tr>
@@ -39,20 +52,20 @@
                   </tr>
                 `;*/
 
-                let html = ``;
+                /*let html = ``;
 
                 jns_retrieve.map((name)=>{
             /*      console.log(name.name);
                   console.log(name.gender);
                   console.log("---------");*/
-                  html += `
-                  <tr>
-                    <td>${name.name}</td>
-                    <td>${name.password}</td>
-                    <td><img src="http://lorempixel.com/100/100/people/"></td>
-                  </tr>
-                  `;    
-                });
+                //   html += `
+                //   <tr>
+                //     <td>${name.name}</td>
+                //     <td>${name.password}</td>
+                //     <td><img src="http://lorempixel.com/100/100/people/"></td>
+                //   </tr>
+                //   `;    
+                // });
 
                 /*for(let i=0;i<jns_retrieve.length;i++){
                   console.log(jns_retrieve[i].name);
@@ -60,5 +73,5 @@
                   console.log("************");
                 }*/
 
-                document.querySelector('#tblNames').innerHTML = html;
+                // document.querySelector('#tblNames').innerHTML = html;*/
               }
