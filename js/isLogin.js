@@ -29,7 +29,6 @@ function isLogin(){
 
 			else{
 				alert("Invalid Username or Password");
-				window.open("/");
 				break;
 			}
   			
